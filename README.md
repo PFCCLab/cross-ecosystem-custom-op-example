@@ -91,8 +91,8 @@ python test.py
   paddle.compat.enable_torch_proxy(scope={"extension"})  # Enable torch proxy for the 'extension' module
   import extension
 
-  x = torch.tensor([1.0, 2.0, 3.0])
-  y = torch.tensor([4.0, 5.0, 6.0])
+  x = paddle.tensor([1.0, 2.0, 3.0])
+  y = paddle.tensor([4.0, 5.0, 6.0])
   z = 2.0
   result = extension.muladd(x, y, z)
   print(result)  # Expected output: tensor([ 6., 12., 20.])
