@@ -77,8 +77,8 @@ python test.py
   // PaddlePaddle version
   at::IntArrayRef sizes = {2, 3, 4};
   auto paddle_tensor = x._PD_GetInner();  // Get the original PaddlePaddle tensor
-  auto paddle_sizes = shape._PD_ToPaddleIntArray();  // Convert to PaddlePaddle specific IntArray
-  auto paddle_reshaped_tensor = paddle::experimental::reshape(paddle_tensor, sizes);  // Reshape using PaddlePaddle API
+  auto paddle_sizes = sizes._PD_ToPaddleIntArray();  // Convert to PaddlePaddle specific IntArray
+  auto paddle_reshaped_tensor = paddle::experimental::reshape(paddle_tensor, paddle_sizes);  // Reshape using PaddlePaddle API
   at::Tensor reshaped_tensor(paddle_reshaped_tensor);  // Wrap back to at::Tensor
   ```
 
