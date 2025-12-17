@@ -32,7 +32,7 @@ python test.py
 
   ```diff
   +import paddle
-  +paddle.compat.enable_torch_proxy()  # Enable torch proxy globally
+  +paddle.enable_compat()  # Enable torch proxy globally
 
   from setuptools import setup, find_packages
   # This torch extension will be replaced by PaddlePaddle's equivalent
@@ -51,7 +51,7 @@ python test.py
   )
   ```
 
-  In this case, you can simply add the line `paddle.compat.enable_torch_proxy()` to enable the torch proxy globally to replace the PyTorch C++ extension building utilities with PaddlePaddle's. For the other custom operators, you may need to manually replace the PyTorch C++ extension building utilities with PaddlePaddle's equivalent.
+  In this case, you can simply add the line `paddle.enable_compat()` to enable the torch proxy globally to replace the PyTorch C++ extension building utilities with PaddlePaddle's. For the other custom operators, you may need to manually replace the PyTorch C++ extension building utilities with PaddlePaddle's equivalent.
 
 - Step 2: Try to build the custom operator with PaddlePaddle.
 
@@ -88,7 +88,7 @@ python test.py
 
   ```python
   import paddle
-  paddle.compat.enable_torch_proxy(scope={"extension"})  # Enable torch proxy for the 'extension' module
+  paddle.enable_compat(scope={"extension"})  # Enable torch proxy for the 'extension' module
   import extension
 
   x = paddle.tensor([1.0, 2.0, 3.0])
